@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+	<!-- This was developed by Kevin Cadena and Delaney Weber late monday night after scouring many google searches trying to figure out how to do this -->
+<head>
+			
+
+		<style type="text/css">
+			   @page 
+        {
+            size: auto;   /* auto is the current printer page size */
+            margin: 0mm;  /* this affects the margin in the printer settings */
+        }
+			div {
+				width:100px;
+				height:100px;
+
+			}
+
+			h2 {
+				color: white;
+			}
+
+			p{ 
+				color: black ;
+				font-family: helvetica !important;
+				margin-left: 400px;
+				margin-top: 20px;
+
+
+			}
+
+			.pwrap {
+			 width: 1500px;
+			 height:300px;	
+			 position: absolute;
+			 /*edit this value for moving up and down*/
+			 top:60px;
+			}
+
+			form {
+				position:absolute;
+				top:650px;
+				margin-left:610px;
+			}
+			img {
+				display:none;
+				}
+			@media print { 
+				p {display: none;
+				}
+				
+				/*To change how the text looks when printing*/
+				h2 {
+					color:black !important;
+					font-family: helvetica !important;
+					font-size: 300px;
+					position:absolute;
+					top: 20in;
+					left:0in;
+					transform: rotate(90deg);
+
+				}
+
+				img {
+					display:block;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					width:1220px;
+					height: 1582px;
+
+				}
+				form {
+					display:none;
+				}
+
+
+
+			}
+
+
+		</style>
+
+<script language='VBScript'>
+Sub Print()
+       OLECMDID_PRINT = 6
+       OLECMDEXECOPT_DONTPROMPTUSER = 2
+       OLECMDEXECOPT_PROMPTUSER = 1
+       call WB.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_DONTPROMPTUSER,1)
+End Sub
+document.write "<object ID='WB' WIDTH=0 HEIGHT=0 CLASSID='CLSID:8856F961-340A-11D0-A96B-00C04FD705A2'></object>"
+</script>
+
+<a href="javascript:window.print();"></a>
+
+		<script type="text/javascript">
+		// DON'T TOUCH THIS
+			window.onload = function(){
+				var printRandom = Math.random();
+				if(printRandom < .5){
+					var el = document.getElementById("one");
+					//END DON'T TOUCH  THIS
+					//Edit between the H2 tags what you want to show up
+					el.innerHTML = '<h2>dead&nbsp;cat</h2>';
+					
+				
+
+				} else { 
+					var el = document.getElementById("one");
+					//Edit between the H2 tags with what you want to show up
+					el.innerHTML = '<h2>live&nbsp;cat</h2>';
+					
+
+				};
+			};
+			</script>
+		</head>
+<body>
+		<!-- Text that shows normally when webpage is opened -->
+<div class="pwrap">	
+<p>
+	<b>You have a box.
+    <br>You secure inside the box&thinsp;&mdash;&thinsp;a geiger counter. 
+    <br>You place inside of the geiger counter&thinsp;&mdash;&thinsp;a piece of radioactive material.
+    </b>
+</p>
+
+<p>So little is the volume of the radioactive material that in the span of 1 hour&thinsp;&mdash;
+<br>the probability that one atom will decay = the probability that no atoms will decay.
+</p>
+
+<p>If a single atom decays&thinsp;&mdash;&thinsp;the counter tube inside of the geiger instrument discharges&thinsp;&mdash;
+<br>triggering the release of a hammer that shatters a vial of hydrocyanic acid. 
+</p>
+
+<p><b>You have a cat.
+<br>You place the cat in the box.
+</b></p>
+
+<p>In the course of 1 hour&thinsp;&mdash; 
+<br>the probability that one atom will decay = the probability that no atoms will decay.
+</p>
+<p>
+Therefore, in the course of 1 hour&thinsp;&mdash;&thinsp;
+<br>the probability that the hydrocyanic acid has been released = 
+<br>the probability that the hydrocyanic acid has not been released. 
+</p>
+
+<p>Therefore, in the course of 1 hour&thinsp;&mdash;
+<br>the probability that the cat is dead = the probability that the cat is alive.
+</p>
+
+<p>For the duration of that hour, until the box is opened&thinsp;&mdash;
+<br>the cat is simultaneously alive and dead
+</p>
+
+<p><b>You wait 1 hour.
+<br>You open the box.
+</b></p>
+</div>
+			<!-- replace this for cat photo -->
+			<img src="COVER-PAGE-1.png">
+			<div id="one"></div>
+			<form>
+			<!-- Change the text in quotations to change what the button says -->
+<input type="button" value="Open the Box" onClick="window.print()">
+</form>
+</body>
+	</html>
